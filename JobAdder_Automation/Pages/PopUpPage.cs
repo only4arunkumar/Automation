@@ -28,8 +28,9 @@ namespace JobAdder_Automation.Pages
             {
                 ElementLocator tabSelector = new ElementLocator(Locator.ClassName, tabName);
                 IWebElement curTab = Driver.GetElement(tabSelector);
+                curTab.Click();
                 Driver.WaitForAjax();
-                if(curTab.GetCssValue("class").Contains("active"))
+                if(curTab.GetAttribute("class").Contains("active"))
                 {
                     return true;
                 }
@@ -119,15 +120,14 @@ namespace JobAdder_Automation.Pages
             Driver.GetElement(new ElementLocator(Locator.ClassName, "ui-dialog-content")).JavaScriptClick();
 
             // String javaScript = string.Format("document.getElementById({0}).selectedIndex = 4", dropDownId);
-
-
+            
             //((IJavaScriptExecutor)Driver).ExecuteScript(javaScript);
 
-            IWebElement noteTypes = Driver.GetElement(new ElementLocator(Locator.Id, dropDownId));
+            //IWebElement noteTypes = Driver.GetElement(new ElementLocator(Locator.Id, dropDownId));
 
-            WebDriverWait waitForActivation = new WebDriverWait(Driver, new TimeSpan(0, 0, 30));
-            waitForActivation.Until(ExpectedConditions.ElementToBeClickable(noteTypes));
-            noteTypes.JavaScriptClick();
+            //WebDriverWait waitForActivation = new WebDriverWait(Driver, new TimeSpan(0, 0, 30));
+            //waitForActivation.Until(ExpectedConditions.ElementToBeClickable(noteTypes));
+            //noteTypes.Click();
 
 
 
@@ -145,7 +145,7 @@ namespace JobAdder_Automation.Pages
 
             ElementLocator saveBtn = new ElementLocator(Locator.ClassName, "save");
             Driver.GetElement(saveBtn).Click();
-            Driver.WaitForAjax();
+          
         }
 
        

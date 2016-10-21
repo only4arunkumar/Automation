@@ -42,5 +42,49 @@ namespace JobAdder_Automation.Pages
         {
             return ClearSavedSearch();
         }
+
+        public bool FilterJobsUsingColumnFilter(string columnName, string filtervalue)
+        {
+            return FilterResultsUsingColumnFilter("JobOrder", columnName, filtervalue);
+
+        }
+
+        public bool AddJobRecordsToFolder()
+        {
+            return AddRecordsToFolder("JobOrder");
+        }
+
+        public bool RemoveJobRecordsFromFolder()
+        {
+            return RemoveRecordFromFolder("JobOrder");
+        }
+
+        public bool InvokeQuickViewOnJobOrders()
+        {
+            return InvokeQuickView();
+        }
+
+
+        public string AddNotes()
+        {
+            string recordId = SelectaRecordFromResultsGrid("JobOrder");
+            InvokeHeaderMenu("Actions");
+            ClickMenuItem("Add note");
+            PopUpPage notesPopup = new PopUpPage(this.DriverContext);
+            notesPopup.AddNote("Regression Testing");
+            return recordId;
+
+        }
+
+        public bool LatestNotesDisplayedInQuickView(string recordId)
+        {
+            if (InvokeQuickViewOnRecord(recordId))
+            {
+                return CheckForLatestNotes();
+            }
+            return false;
+
+        }
+
     }
 }

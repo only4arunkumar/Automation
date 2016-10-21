@@ -10,6 +10,7 @@ namespace JobAdder_Automation.Pages
 {
     public class CandidateResultsPage : ResultsPageBase
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public CandidateResultsPage(DriverContext driverContext) : base(driverContext, "Candidate")
         {
 
@@ -82,7 +83,10 @@ namespace JobAdder_Automation.Pages
 
         public bool LatestNotesDisplayedInQuickView(string recordId)
         {
-           if(InvokeQuickViewOnRecord(recordId))
+
+            Driver.WaitUntilElementIsNoLongerFound(new ElementLocator(Locator.CssSelector, "ui-widget-overlay"),30);
+
+            if (InvokeQuickViewOnRecord(recordId))
             {
                 return CheckForLatestNotes();
             }
@@ -92,7 +96,7 @@ namespace JobAdder_Automation.Pages
 
         public  bool  CandidateRecordStatusChanged()
         {
-            return ChangeRecordStatus("Candidate");
+            return ChangeRecordStatus("candidates");
         }
     }
 }

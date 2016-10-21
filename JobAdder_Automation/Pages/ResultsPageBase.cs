@@ -314,14 +314,20 @@ namespace JobAdder_Automation.Pages
             try
             {
                 string recordValue = Driver.FindElement(By.Id(recordId)).GetAttribute("value");
-                string linktext = string.Format("a[href$='{0}']", recordValue);
-                Driver.FindElement(By.CssSelector(linktext)).Click();
+                string linktext = string.Format("a[href$='/{0}'", recordValue);
+                IWebElement quickView=  Driver.GetElement(new ElementLocator(Locator.CssSelector, linktext));
+                         
+
+                IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                js.ExecuteScript("var evt = document.createEvent('MouseEvents');" + "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);" + "arguments[0].dispatchEvent(evt);", quickView);
+                
                 return true;
             }
             catch (NoSuchElementException ex)
             {
-
+                
                 logger.Error("No Such Element exception  in  InvokeQuickViewOnRecord :{0}", ex.Message);
+                
             }
             catch(InvalidOperationException ex)
             {

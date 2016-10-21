@@ -20,6 +20,7 @@ namespace JobAdder_Automation.Step_Defenitions
         {
             JobAdderHeaderPage headerPage = new JobAdderHeaderPage(this.driverContext);
             headerPage.Navigate_To_Module("Candidates");
+            headerPage.Navigate_To_Respectivescreen(1);
             canResultsPage = new CandidateResultsPage(this.driverContext);
 
         }
@@ -110,6 +111,7 @@ namespace JobAdder_Automation.Step_Defenitions
         {
 
             ScenarioContext.Current.Add("recordId", canResultsPage.AddNotes());
+            
         }
 
         [Then(@"the application displays the newly added notes in QuickView")]
@@ -118,6 +120,7 @@ namespace JobAdder_Automation.Step_Defenitions
             string recordId;
             ScenarioContext.Current.TryGetValue("recordId", out recordId);
             Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.LatestNotesDisplayedInQuickView(recordId)));
+            ScenarioContext.Current.Remove("recordId");
         }
 
         [Then(@"the application allows me to change the status of a candidate record")]

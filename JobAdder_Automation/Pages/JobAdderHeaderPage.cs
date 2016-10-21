@@ -128,5 +128,11 @@ namespace JobAdder_Automation.Pages
             ElementLocator headerLink = new ElementLocator(Locator.LinkText, module);
             Driver.GetElement(headerLink).Click();
         }
+        public void  Navigate_To_Respectivescreen(int index)
+        {
+            ElementLocator headerLink = new ElementLocator(Locator.CssSelector, "li.active li");
+            Driver.GetElements(headerLink)[index].Click();
+            Driver.WaitForAjax();
+        }
     }
 }
