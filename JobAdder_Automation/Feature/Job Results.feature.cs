@@ -222,6 +222,23 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Changing Status of  JobOrder and Viewing the updated status")]
+        public virtual void ChangingStatusOfJobOrderAndViewingTheUpdatedStatus()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Changing Status of  JobOrder and Viewing the updated status", ((string[])(null)));
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+ testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+ testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.Then("the application allows be to chage the status of the Job record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

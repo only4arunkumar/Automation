@@ -313,8 +313,10 @@ namespace JobAdder_Automation.Pages
 
             try
             {
-                string recordValue = Driver.FindElement(By.Id(recordId)).GetAttribute("value");
-                string linktext = string.Format("a[href$='/{0}'", recordValue);
+                //string recordValue = Driver.FindElement(By.Id(recordId)).GetAttribute("value");
+                //string linktext = string.Format("a[href$='/{0}'", recordValue);
+                string linktext = string.Format("a[href$='/{0}'", recordId);
+
                 IWebElement quickView=  Driver.GetElement(new ElementLocator(Locator.CssSelector, linktext));
                          
 
@@ -335,14 +337,30 @@ namespace JobAdder_Automation.Pages
             }
             return false;
         }
+
+        protected bool SortGrid()
+        {
+            try
+            {
+                ElementLocator sortColumnHeader = new ElementLocator(Locator.CssSelector, "a.sort");
+                Driver.GetElement(sortColumnHeader).Click();
+                Driver.WaitForAjax();
+                return true;
+            }catch(TimeoutException ex)
+            {
+                logger.Error("Error while Invoking Grid Sort Operation:{0}", ex.Message);
+            }
+            return false;
+           
+        }
         
         protected bool ChangeRecordStatus(string moduleName)
         {
+            SortGrid();
             string recordId = SelectaRecordFromResultsGrid(moduleName);
             PopUpPage popup = new PopUpPage(DriverContext);
             InvokeQuickViewOnRecord(recordId);
-            string status =popup.GetCurrentStatus();
-
+            string status = popup.GetCurrentStatus();
             popup.ClosePopUp();
             InvokeHeaderMenu("Actions");
             ClickMenuItem("Change status");
@@ -386,7 +404,8 @@ namespace JobAdder_Automation.Pages
             string gridRecordSelector = string.Format("Grid_{0}_Select_{1}", moduleName, indexValue.Next(0, GetCurrentPageRowCount()));
             IWebElement candidateRecord = Driver.FindElement(By.Id(gridRecordSelector));
             candidateRecord.Click();
-            return gridRecordSelector;
+            return candidateRecord.GetAttribute("value");
+            //return gridRecordSelector;
         }
 
         protected void InvokeHeaderMenu(string name)
@@ -441,6 +460,8 @@ namespace JobAdder_Automation.Pages
             folderName.SendKeys(Keys.Enter);
             Driver.WaitForAjax();
         }
+
+        
 
 
         

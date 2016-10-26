@@ -117,33 +117,20 @@ namespace JobAdder_Automation.Pages
 
         private void SelectAndSaveChangesFromPopup(string noteText,string dropDownId)
         {
-            Driver.GetElement(new ElementLocator(Locator.ClassName, "ui-dialog-content")).JavaScriptClick();
-
-            // String javaScript = string.Format("document.getElementById({0}).selectedIndex = 4", dropDownId);
+            IWebElement dropDown = Driver.GetElement(new ElementLocator(Locator.Id, dropDownId));
+            IList<IWebElement> list = dropDown.FindElements(By.TagName("option"));
+            IWebElement nonSelctedvalue = list.First(x => x.Selected == false);
             
-            //((IJavaScriptExecutor)Driver).ExecuteScript(javaScript);
+            Select dropDownObj = new Select(dropDown);
+            dropDownObj.SelectByText(nonSelctedvalue.Text);
 
-            //IWebElement noteTypes = Driver.GetElement(new ElementLocator(Locator.Id, dropDownId));
-
-            //WebDriverWait waitForActivation = new WebDriverWait(Driver, new TimeSpan(0, 0, 30));
-            //waitForActivation.Until(ExpectedConditions.ElementToBeClickable(noteTypes));
-            //noteTypes.Click();
-
-
-
-            //// IWebElement noteTypes = Driver.FindElement(By.Id(dropDownId));
-
-            //Driver.Actions().Click(noteTypes).Perform();
-            //Driver.Actions().SendKeys(noteTypes, Keys.ArrowDown).Perform();
-            //Driver.Actions().SendKeys(noteTypes, Keys.ArrowDown).Perform();
-            //Driver.Actions().SendKeys(noteTypes, Keys.Enter).Perform();
 
 
 
             ElementLocator noteTxt = new ElementLocator(Locator.Id, "Note_Text");
             Driver.GetElement(noteTxt).SendKeys(noteText);
 
-            ElementLocator saveBtn = new ElementLocator(Locator.ClassName, "save");
+            ElementLocator saveBtn = new ElementLocator(Locator.CssSelector, "button.save");
             Driver.GetElement(saveBtn).Click();
           
         }

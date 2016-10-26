@@ -96,7 +96,7 @@ namespace JobAdder_Automation.Pages
 
         public  bool  CandidateRecordStatusChanged()
         {
-            return ChangeRecordStatus("candidates");
+            return ChangeRecordStatus("Candidate");
         }
     }
 }

@@ -52,4 +52,11 @@ Scenario:Adding Notes to Job recrods and Vewing them in QuickView
 	And   I have added a note to a Job record
 	Then  the application displays the newly added notes in Jobs QuickView
 
+Scenario: Changing Status of  JobOrder and Viewing the updated status
+	Given I have successfully logged into JobAdder
+	And   I have navigated to Jobs results page
+	Then  the application allows be to chage the status of the Job record
+
+
+
 

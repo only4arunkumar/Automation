@@ -86,5 +86,11 @@ namespace JobAdder_Automation.Pages
 
         }
 
+
+        public bool JobRecordStatusChanged()
+        {
+            return ChangeRecordStatus("JobOrder");
+        }
+
     }
 }

@@ -96,6 +96,13 @@ namespace JobAdder_Automation.Step_Defenitions
             Verify.That(this.driverContext, () => Assert.IsTrue(jobResultsPage.LatestNotesDisplayedInQuickView(recordId)));
         }
 
+        [Then(@"the application allows be to chage the status of the Job record")]
+        public void ThenTheApplicationAllowsBeToChageTheStatusOfTheJobRecord()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(jobResultsPage.JobRecordStatusChanged()));
+        }
+
+
 
 
     }
