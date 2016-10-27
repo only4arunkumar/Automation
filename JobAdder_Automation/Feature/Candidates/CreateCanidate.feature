@@ -19,3 +19,6 @@ Scenario: Create a Candidate by parsing individual resume
 	Then the application creates the candidate record from resume and display the result in view mode
 
 
+
+
+

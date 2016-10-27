@@ -7,7 +7,7 @@ using Objectivity.Test.Automation.Common.Types;
 using Objectivity.Test.Automation.Tests.PageObjects;
 using OpenQA.Selenium;
 using JobAdder_Automation.Helpers;
-using System.Windows.Forms;
+using OpenQA.Selenium.Remote;
 
 namespace JobAdder_Automation.Pages
 {
@@ -19,7 +19,6 @@ namespace JobAdder_Automation.Pages
         private readonly ElementLocator canEmail = new ElementLocator(Locator.Id, "Email");
         private readonly ElementLocator canMobile = new ElementLocator(Locator.Id, "Mobile");
         private readonly ElementLocator canCreateBtn = new ElementLocator(Locator.XPath, "//button[contains(text(),'Create')]");
-        private readonly ElementLocator latestResumeUpload = new ElementLocator(Locator.Id, "j-5");
         public string FName;
         public string LName;
 
@@ -55,12 +54,18 @@ namespace JobAdder_Automation.Pages
         {
             try
             {
-               
-                Driver.FindElements(By.CssSelector("input[type='file']")).;
+
                 
 
+                IWebElement fileUpload = Driver.FindElements(By.CssSelector("input[type='file']"))[1];
+                fileUpload.SendKeys(@"D:\JobAdder_Automation_Bitbucket\JobAdder_Automation\TestDataSampleResume.pdf");
+                Driver.WaitForAjax();
+                fileUpload.Submit();    
+                           
+
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -69,5 +74,7 @@ namespace JobAdder_Automation.Pages
       
             return true;
         }
+
+      
     }
 }
