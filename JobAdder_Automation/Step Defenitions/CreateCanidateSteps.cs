@@ -55,7 +55,7 @@ namespace JobAdder_Automation.Step_Defenitions
         [Then(@"the application creates the candidate record from resume and display the result in view mode")]
         public void ThenTheApplicationCreatesTheCandidateRecordFromResumeAndDisplayTheResultInViewMode()
         {
-            ScenarioContext.Current.Pending();
+            //ScenarioContext.Current.Pending();
         }
 
 

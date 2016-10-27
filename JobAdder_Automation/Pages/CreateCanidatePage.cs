@@ -8,6 +8,7 @@ using Objectivity.Test.Automation.Tests.PageObjects;
 using OpenQA.Selenium;
 using JobAdder_Automation.Helpers;
 using OpenQA.Selenium.Remote;
+using System.IO;
 
 namespace JobAdder_Automation.Pages
 {
@@ -55,10 +56,11 @@ namespace JobAdder_Automation.Pages
             try
             {
 
-                
 
+                FileInfo file = new FileInfo("../JobAdder_Automation/bin/Debug/TestData/Sample_Resume.pdf");
                 IWebElement fileUpload = Driver.FindElements(By.CssSelector("input[type='file']"))[1];
-                fileUpload.SendKeys(@"D:\JobAdder_Automation_Bitbucket\JobAdder_Automation\TestDataSampleResume.pdf");
+                fileUpload.SendKeys(file.FullName);
+                Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 5));
                 Driver.WaitForAjax();
                 fileUpload.Submit();    
                            
