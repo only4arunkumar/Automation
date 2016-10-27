@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace JobAdder_Automation.Feature
+namespace JobAdder_Automation.Feature.HeaderBar
 {
     using TechTalk.SpecFlow;
     
