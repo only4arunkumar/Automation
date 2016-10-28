@@ -20,8 +20,8 @@ namespace JobAdder_Automation.Pages
         private readonly ElementLocator canEmail = new ElementLocator(Locator.Id, "Email");
         private readonly ElementLocator canMobile = new ElementLocator(Locator.Id, "Mobile");
         private readonly ElementLocator canCreateBtn = new ElementLocator(Locator.XPath, "//button[contains(text(),'Create')]");
-        public string FName;
-        public string LName;
+        private string FName;
+        private string LName;
 
         public CreateCanidatePage(DriverContext driverContext):base(driverContext)
         {
@@ -55,27 +55,45 @@ namespace JobAdder_Automation.Pages
         {
             try
             {
+        
 
-
-                FileInfo file = new FileInfo("../JobAdder_Automation/bin/Debug/TestData/Sample_Resume.pdf");
+                FileInfo file = new FileInfo("D:\\Arun\\JobAdder_TestAutomation\\JobAdder_Automation\\bin\\Debug\\TestData\\Sample_Resume.pdf");
                 IWebElement fileUpload = Driver.FindElements(By.CssSelector("input[type='file']"))[1];
                 fileUpload.SendKeys(file.FullName);
                 Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 5));
                 Driver.WaitForAjax();
-                fileUpload.Submit();    
-                           
-
-
+                FName = Driver.GetElement(canFirstName).GetAttribute("value");
+                LName = Driver.GetElement(canLastNmae).GetAttribute("value");
+                CreateAndSaveCandidateRecord();
+               
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-
-                throw;
+                logger.Error("File not found exception while executing UploadCandidateResume:{0}", ex.Message);
+                return false;
+              
             }
-            
-      
+            catch(NoSuchElementException ex)
+            {
+                logger.Error("No such Element exception while executing UploadCandidateResume:{0}", ex.Message);
+                return false;
+            }
+            catch(TimeoutException ex)
+            {
+                logger.Error("Timeout exception while executing UploadCandidateResume:{0}", ex.Message);
+            }
             return true;
         }
+
+        public string GetCandidateFirstName()
+        {
+            return FName;
+        }
+        public string GetCandidateLastName()
+        {
+            return LName;
+        }
+       
 
       
     }

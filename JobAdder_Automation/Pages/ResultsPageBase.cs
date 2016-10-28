@@ -313,8 +313,7 @@ namespace JobAdder_Automation.Pages
 
             try
             {
-                //string recordValue = Driver.FindElement(By.Id(recordId)).GetAttribute("value");
-                //string linktext = string.Format("a[href$='/{0}'", recordValue);
+                
                 string linktext = string.Format("a[href$='/{0}'", recordId);
 
                 IWebElement quickView=  Driver.GetElement(new ElementLocator(Locator.CssSelector, linktext));
@@ -405,7 +404,31 @@ namespace JobAdder_Automation.Pages
             IWebElement candidateRecord = Driver.FindElement(By.Id(gridRecordSelector));
             candidateRecord.Click();
             return candidateRecord.GetAttribute("value");
-            //return gridRecordSelector;
+          
+        }
+
+        protected bool OpenARecordInViewMode(string moduleName)
+        {
+            try
+            {
+                Random indexValue = new Random();
+                string selectorText = string.Format("table.primary a.{0}-link", moduleName);
+                ElementLocator recordselector = new ElementLocator(Locator.CssSelector, selectorText);
+                Driver.GetElements(recordselector)[indexValue.Next(0, GetCurrentPageRowCount()].Click();
+            }
+            catch (NoSuchElementException ex)
+            {
+                
+                logger.Error("NoSuchElementException encuntered in OpenARecordInViewMode :{0}", ex.Message);
+                return false;
+            }
+            catch (TimeoutException ex)
+            {
+
+                logger.Error("TimeoutException encuntered in OpenARecordInViewMode :{0}", ex.Message);
+                return false;
+            }
+            return true;
         }
 
         protected void InvokeHeaderMenu(string name)

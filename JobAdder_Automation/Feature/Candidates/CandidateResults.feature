@@ -11,7 +11,6 @@ Scenario: View defualt candidate results
 Scenario: Filter Candidate results using standard filters
 	Given I have successfully logged into JobAdder
 	And   I have navigated to Candidates results page
-	
 	Then  the application allows to filter the results
 
 

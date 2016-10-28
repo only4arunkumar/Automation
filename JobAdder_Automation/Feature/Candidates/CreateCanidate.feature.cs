@@ -99,8 +99,6 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
  testRunner.And("I have uploaded a candidate resume to file-upload area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.When("I press create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
  testRunner.Then("the application creates the candidate record from resume and display the result i" +
                     "n view mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

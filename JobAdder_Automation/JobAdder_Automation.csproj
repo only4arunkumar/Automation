@@ -86,6 +86,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateCanidate.feature</DependentUpon>
     </Compile>
+    <Compile Include="Feature\Candidates\ViewCandidate.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewCandidate.feature</DependentUpon>
+    </Compile>
     <Compile Include="Feature\HeaderBar\JobAdderHeader.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +108,7 @@
     </Compile>
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Pages\CandidateResultsPage.cs" />
+    <Compile Include="Pages\CandidateViewPage.cs" />
     <Compile Include="Pages\CreateCanidatePage.cs" />
     <Compile Include="Pages\JobResultsPage.cs" />
     <Compile Include="Pages\PopUpPage.cs" />
@@ -131,6 +137,10 @@
     <None Include="Feature\Candidates\CreateCanidate.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateCanidate.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\Candidates\ViewCandidate.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewCandidate.feature.cs</LastGenOutput>
     </None>
     <None Include="Feature\HeaderBar\JobAdderHeader.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

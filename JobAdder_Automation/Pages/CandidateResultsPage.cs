@@ -98,5 +98,10 @@ namespace JobAdder_Automation.Pages
         {
             return ChangeRecordStatus("Candidate");
         }
+
+        public bool SelectARecordFromCandidateResults()
+        {
+
+        }
     }
 }

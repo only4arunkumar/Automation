@@ -25,26 +25,7 @@ namespace JobAdder_Automation.Step_Defenitions
 
         }
         
-        [Then(@"the application displays the defualt results")]
-        public void ThenTheApplicationDisplaysTheDefualtResults()
-        {
-            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.DefaultCandidateResultDisplayed()));
-            
-        }
-
-        [Then(@"the application allows to filter the results")]
-        public void ThenTheApplicationAllowsToFilterTheResults()
-        {
-            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.FilterCandidatesUsingStanardFilters()));
-            
-        }
-
-       
-        [Then(@"the application allows to invoke my SavedSearch")]
-        public void ThenTheApplicationAllowsToInvokeMySavedSearch()
-        {
-            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.SavedSearchPerformedOnCandidates()));
-        }
+        
 
         [Given(@"I have invoked my Saved Search")]
         public void GivenIHaveInvokedMySavedSearch()
@@ -53,20 +34,58 @@ namespace JobAdder_Automation.Step_Defenitions
             ThenTheApplicationAllowsToInvokeMySavedSearch();
         }
                 
-        [Then(@"the application allows to clear the SavedSearch")]
-        public void ThenTheApplicationAllowsToClearTheSavedSearch()
-        {
-            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.ClearSavedSearchOnCandidates()));
-
-        }
-
-
+     
         [Given(@"the application allows to filter results using '(.*)' and '(.*)'")]
         [Then(@"the application allows to filter results using (.*) and (.*)")]
         public void ThenTheApplicationAllowsToFilterResultsUsingAnd(string columnName, string filterString)
         {
             Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.FilterCandidatesUsingColumnFilter(columnName, filterString)));
             
+        }
+
+        [Given(@"I have selected a candidate record from the candidate results")]
+        public void GivenIHaveSelectedACandidateRecordFromTheCandidateResults()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.SelectARecordFromCandidateResults()));
+        }
+
+        [Given(@"I have added a note to a record")]
+        public void GivenIHaveAddedANoteToARecord()
+        {
+            ScenarioContext.Current.Add("recordId", canResultsPage.AddNotes());
+        }
+
+        [Given(@"I have added a candidate record to  a folder")]
+        public void GivenIHaveAddedACandidateRecordToAFolder()
+        {
+            ThenTheApplicationAllowsMeToAddRecordsIntoFolder();
+        }
+
+        [Then(@"the application displays the defualt results")]
+        public void ThenTheApplicationDisplaysTheDefualtResults()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.DefaultCandidateResultDisplayed()));
+
+        }
+
+        [Then(@"the application allows to filter the results")]
+        public void ThenTheApplicationAllowsToFilterTheResults()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.FilterCandidatesUsingStanardFilters()));
+
+        }
+
+
+        [Then(@"the application allows to invoke my SavedSearch")]
+        public void ThenTheApplicationAllowsToInvokeMySavedSearch()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.SavedSearchPerformedOnCandidates()));
+        }
+        [Then(@"the application allows to clear the SavedSearch")]
+        public void ThenTheApplicationAllowsToClearTheSavedSearch()
+        {
+            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.ClearSavedSearchOnCandidates()));
+
         }
 
         [Then(@"the application allows me to clear column filter")]
@@ -83,11 +102,7 @@ namespace JobAdder_Automation.Step_Defenitions
         }
 
 
-        [Given(@"I have added a candidate record to  a folder")]
-        public void GivenIHaveAddedACandidateRecordToAFolder()
-        {
-            ThenTheApplicationAllowsMeToAddRecordsIntoFolder();
-        }
+        
 
         [Then(@"the application allows me to remove the record form folder")]
         public void ThenTheApplicationAllowsMeToRemoveTheRecordFormFolder()
@@ -106,13 +121,7 @@ namespace JobAdder_Automation.Step_Defenitions
             Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.InvokeQuickViewOnCandidates()));
         }
 
-        [Given(@"I have added a note to a record")]
-        public void GivenIHaveAddedANoteToARecord()
-        {
-
-            ScenarioContext.Current.Add("recordId", canResultsPage.AddNotes());
-            
-        }
+       
 
         [Then(@"the application displays the newly added notes in QuickView")]
         public void ThenTheApplicationDisplaysTheNewlyAddedNotesInQuickView()
@@ -130,6 +139,7 @@ namespace JobAdder_Automation.Step_Defenitions
         }
 
 
+       
 
     }
 }

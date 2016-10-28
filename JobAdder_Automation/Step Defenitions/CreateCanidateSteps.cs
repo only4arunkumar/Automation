@@ -11,7 +11,7 @@ namespace JobAdder_Automation.Step_Defenitions
     {
         private readonly DriverContext driverContext;
         private CreateCanidatePage canCreatePage;
-
+        private CandidateViewPage canViewPage;
         public CreateCanidateSteps()
         {
 
@@ -50,12 +50,15 @@ namespace JobAdder_Automation.Step_Defenitions
         public void GivenIHaveUploadedACandidateResumeToFile_UploadArea()
         {
             canCreatePage.UploadCandidateResume();
+
         }
 
         [Then(@"the application creates the candidate record from resume and display the result in view mode")]
         public void ThenTheApplicationCreatesTheCandidateRecordFromResumeAndDisplayTheResultInViewMode()
         {
-            //ScenarioContext.Current.Pending();
+            canViewPage = new CandidateViewPage(this.driverContext);
+            Verify.That(this.driverContext, () => Assert.IsTrue(canViewPage.CheckWhetherCandidateRecordDisplayInViewMode(canCreatePage.GetCandidateFirstName(), canCreatePage.GetCandidateLastName())));
+             
         }
 
 
