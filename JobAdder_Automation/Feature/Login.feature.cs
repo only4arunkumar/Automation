@@ -66,9 +66,11 @@ namespace JobAdder_Automation.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successful login to JobAdder")]
+        [NUnit.Framework.CategoryAttribute("Login")]
         public virtual void SuccessfulLoginToJobAdder()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful login to JobAdder", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful login to JobAdder", new string[] {
+                        "Login"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
