@@ -44,6 +44,8 @@ namespace JobAdder_Automation.Step_Defenitions
         {
           
             Verify.That(this.driverContext, () => Assert.IsTrue(canCreatePage.CheckCanidateRecordDisplayed()));
+           
+           
         }
 
         [Given(@"I have uploaded a candidate resume to file-upload area")]
@@ -57,8 +59,9 @@ namespace JobAdder_Automation.Step_Defenitions
         public void ThenTheApplicationCreatesTheCandidateRecordFromResumeAndDisplayTheResultInViewMode()
         {
             canViewPage = new CandidateViewPage(this.driverContext);
-            Verify.That(this.driverContext, () => Assert.IsTrue(canViewPage.CheckWhetherCandidateRecordDisplayInViewMode(canCreatePage.GetCandidateFirstName(), canCreatePage.GetCandidateLastName())));
-             
+            Verify.That(this.driverContext, () => Assert.IsTrue(canViewPage.CheckWhetherCandidateRecordDisplayedInViewMode(canCreatePage.GetCandidateFirstName(), canCreatePage.GetCandidateLastName())));
+            CandidateViewPage viewCandidate = new CandidateViewPage(this.driverContext);
+            viewCandidate.DeleteCurrentCandidate(true);
         }
 
 

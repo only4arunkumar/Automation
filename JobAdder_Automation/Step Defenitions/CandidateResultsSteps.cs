@@ -46,7 +46,9 @@ namespace JobAdder_Automation.Step_Defenitions
         [Given(@"I have selected a candidate record from the candidate results")]
         public void GivenIHaveSelectedACandidateRecordFromTheCandidateResults()
         {
-            Verify.That(this.driverContext, () => Assert.IsTrue(canResultsPage.SelectARecordFromCandidateResults()));
+            string canId = canResultsPage.SelectARecordFromCandidateResults();
+            Verify.That(this.driverContext, () => Assert.AreNotEqual(canId,string.Empty));
+            ScenarioContext.Current.Add("CanrecordIdView", canId);
         }
 
         [Given(@"I have added a note to a record")]

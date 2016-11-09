@@ -9,6 +9,7 @@ using OpenQA.Selenium;
 using JobAdder_Automation.Helpers;
 using OpenQA.Selenium.Remote;
 using System.IO;
+using OpenQA.Selenium.Support.UI;
 
 namespace JobAdder_Automation.Pages
 {
@@ -41,7 +42,10 @@ namespace JobAdder_Automation.Pages
 
         public void CreateAndSaveCandidateRecord()
         {
+
+            Driver.WaitUntilElementIsNoLongerFound(new ElementLocator(Locator.ClassName, "blockOverlay"),30);
             Driver.GetElement(canCreateBtn).Click();
+            
 
         }
 
@@ -61,7 +65,7 @@ namespace JobAdder_Automation.Pages
                 IWebElement fileUpload = Driver.FindElements(By.CssSelector("input[type='file']"))[1];
                 fileUpload.SendKeys(file.FullName);
                 Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 5));
-                Driver.WaitForAjax();
+                
                 FName = Driver.GetElement(canFirstName).GetAttribute("value");
                 LName = Driver.GetElement(canLastNmae).GetAttribute("value");
                 CreateAndSaveCandidateRecord();

@@ -115,6 +115,7 @@
     <Compile Include="Step Defenitions\CandidateResultsSteps.cs" />
     <Compile Include="Pages\ResultsPageBase.cs" />
     <Compile Include="ProjectTestBase.cs" />
+    <Compile Include="Step Defenitions\CandidateViewSteps.cs" />
     <Compile Include="Step Defenitions\CreateCanidateSteps.cs" />
     <Compile Include="Step Defenitions\JobAdderHeaderSteps.cs" />
     <Compile Include="Pages\JobAdderHeaderPage.cs" />

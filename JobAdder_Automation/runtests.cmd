@@ -4,13 +4,11 @@
 
 @if ERRORLEVEL 1 goto end
 
-@cd ..\packages\SpecRun.Runner.*\tools
+@cd ..\packages\NUnit.ConsoleRunner.*\tools
 
-@set profile=%1
-@if "%profile%" == "" set profile=Default
 
-SpecRun.exe run %profile%.srprofile "/baseFolder:%~dp0\bin\Debug" /log:specrun.log %2 %3 %4 %5
 
-:end
+nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll" 
+
 
 @popd

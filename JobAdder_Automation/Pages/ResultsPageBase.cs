@@ -407,28 +407,43 @@ namespace JobAdder_Automation.Pages
           
         }
 
-        protected bool OpenARecordInViewMode(string moduleName)
+        protected string OpenARecordInViewMode(string moduleName)
         {
             try
             {
                 Random indexValue = new Random();
                 string selectorText = string.Format("table.primary a.{0}-link", moduleName);
                 ElementLocator recordselector = new ElementLocator(Locator.CssSelector, selectorText);
-                Driver.GetElements(recordselector)[indexValue.Next(0, GetCurrentPageRowCount()].Click();
+                int recordIndex = indexValue.Next(0, GetCurrentPageRowCount());
+                string recordId = Driver.GetElements(recordselector)[recordIndex].GetAttribute("href").Split('/').Last();
+                Driver.GetElements(recordselector)[recordIndex].Click();
+                return recordId;
+
             }
             catch (NoSuchElementException ex)
             {
                 
                 logger.Error("NoSuchElementException encuntered in OpenARecordInViewMode :{0}", ex.Message);
-                return false;
+                return string.Empty;
             }
             catch (TimeoutException ex)
             {
 
                 logger.Error("TimeoutException encuntered in OpenARecordInViewMode :{0}", ex.Message);
-                return false;
+                return string.Empty;
             }
-            return true;
+            catch(IndexOutOfRangeException ex)
+            {
+                logger.Error("IndexOutOfRangeException encuntered in OpenARecordInViewMode :{0}", ex.Message);
+                return string.Empty;
+            }
+            catch(NullReferenceException ex)
+            {
+                logger.Error("Nullrefrence exception encuntered in OpenARecordInViewMode :{0}", ex.Message);
+                return string.Empty;
+            }
+           
+
         }
 
         protected void InvokeHeaderMenu(string name)
