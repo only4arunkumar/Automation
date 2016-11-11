@@ -22,7 +22,7 @@ namespace JobAdder_Automation.Step_Defenitions
           LoginPage  loginPage = new LoginPage(this.driverContext);
             loginPage.NavigateToLoginPage();
             loginPage.InputUserName("arunkumar+auqa2@jobadder.com");
-            loginPage.InputPassword("Jiby@a713");
+            loginPage.InputPassword("Jiby@a714");
             loginPage.Logon();
         }
 

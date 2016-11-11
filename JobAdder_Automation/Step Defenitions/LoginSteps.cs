@@ -30,7 +30,7 @@ namespace JobAdder_Automation.Step_Defenitions
         public void GivenIHaveEnteredValidCredentials()
         {
             loginPage.InputUserName("arunkumar+auqa2@jobadder.com");
-            loginPage.InputPassword("Jiby@a713");
+            loginPage.InputPassword("Jiby@a714");
           
         }
 
