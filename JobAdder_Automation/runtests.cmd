@@ -8,10 +8,17 @@
 
 
 
-nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll" --where:cat==Login
+nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll"
 
 :: Can be used when we need to filter and runs testcase belonging to secific category
 ::nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll" --where:cat==Login
 
+@copy TestResult.xml   "%~dp0\bin\Debug\TestResult.xml"
 
-@popd
+@popd      
+
+@pushd %~dp0
+cd ..\packages\ReportUnit.*\tools
+ReportUnit.exe "%~dp0\bin\Debug\TestResult.xml
+
+@popd      
