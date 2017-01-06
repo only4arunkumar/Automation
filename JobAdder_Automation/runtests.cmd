@@ -4,11 +4,11 @@
 
 @if ERRORLEVEL 1 goto end
 
-@cd ..\packages\NUnit.ConsoleRunner.*\tools
+@cd ..\packages\xunit.runner.console.*\tools
 
 
 
-nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll"
+xunit.console "%~dp0\bin\Debug\JobAdder_Automation.dll"  -parallel assemblies -maxthreads 15 -verbose -xml TestResult.xml
 
 :: Can be used when we need to filter and runs testcase belonging to secific category
 ::nunit3-console.exe  "%~dp0\bin\Debug\JobAdder_Automation.dll" --where:cat==Login

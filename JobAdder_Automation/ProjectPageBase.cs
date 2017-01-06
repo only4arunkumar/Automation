@@ -33,17 +33,15 @@ namespace Objectivity.Test.Automation.Tests.PageObjects
         {
             this.DriverContext = driverContext;
             this.Driver = driverContext.Driver;
-            
         }
 
         protected IWebDriver Driver { get; set; }
 
         protected DriverContext DriverContext { get; set; }
 
-
         protected Uri GetDefaultUrlValue()
         {
-            return new Uri( string.Format(
+            return new Uri(string.Format(
                 CultureInfo.CurrentCulture,
                 "{0}://{1}{2}",
                 BaseConfiguration.Protocol,

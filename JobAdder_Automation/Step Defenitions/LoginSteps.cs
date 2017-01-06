@@ -12,9 +12,11 @@ namespace JobAdder_Automation.Step_Defenitions
     {
 
         private readonly DriverContext driverContext;
+        private readonly ScenarioContext scenarioContext;
         private LoginPage loginPage;
-        public LoginSteps()
+        public LoginSteps(ScenarioContext scenarioContext)
         {
+            this.scenarioContext = scenarioContext;
             this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
         }
             

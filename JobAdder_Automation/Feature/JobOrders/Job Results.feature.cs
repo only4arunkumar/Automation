@@ -17,18 +17,20 @@ namespace JobAdder_Automation.Feature.JobOrders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Job Results")]
-    public partial class JobResultsFeature
+    public partial class JobResultsFeature : Xunit.IClassFixture<JobResultsFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "Job Results.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public JobResultsFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Job Results", "\tCheck whether user is able to view and perform basic operations on the Job\r\n\trec" +
@@ -36,19 +38,16 @@ namespace JobAdder_Automation.Feature.JobOrders
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -64,180 +63,195 @@ namespace JobAdder_Automation.Feature.JobOrders
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("View defualt job results")]
+        public virtual void SetFixture(JobResultsFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="View defualt job results")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "View defualt job results")]
         public virtual void ViewDefualtJobResults()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View defualt job results", ((string[])(null)));
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
  testRunner.Then("the application displays the defualt Job results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Filter JobOrder results using standard filters")]
+        [Xunit.FactAttribute(DisplayName="Filter JobOrder results using standard filters")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Filter JobOrder results using standard filters")]
         public virtual void FilterJobOrderResultsUsingStandardFilters()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter JobOrder results using standard filters", ((string[])(null)));
-#line 10
+#line 9
 this.ScenarioSetup(scenarioInfo);
+#line 10
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
  testRunner.Then("the application allows to filter Joborder  results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Invoke a SavedSearch on Job records")]
+        [Xunit.FactAttribute(DisplayName="Invoke a SavedSearch on Job records")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Invoke a SavedSearch on Job records")]
         public virtual void InvokeASavedSearchOnJobRecords()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoke a SavedSearch on Job records", ((string[])(null)));
-#line 15
+#line 13
 this.ScenarioSetup(scenarioInfo);
-#line 16
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 14
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
  testRunner.Then("the application allows to invoke my SavedSearch on Jobs records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Clearing an already selected SavedSearch on Job records")]
+        [Xunit.FactAttribute(DisplayName="Clearing an already selected SavedSearch on Job records")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Clearing an already selected SavedSearch on Job records")]
         public virtual void ClearingAnAlreadySelectedSavedSearchOnJobRecords()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clearing an already selected SavedSearch on Job records", ((string[])(null)));
-#line 20
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 21
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 18
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
  testRunner.And("I have invoked my Saved Search  on Job records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
+#line 20
  testRunner.Then("the application allows to clear the SavedSearch on Jobs records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Filtering the Jobs results using the grid column filter")]
+        [Xunit.FactAttribute(DisplayName="Filtering the Jobs results using the grid column filter")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Filtering the Jobs results using the grid column filter")]
         public virtual void FilteringTheJobsResultsUsingTheGridColumnFilter()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filtering the Jobs results using the grid column filter", ((string[])(null)));
-#line 26
+#line 22
 this.ScenarioSetup(scenarioInfo);
-#line 27
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 23
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 24
  testRunner.Then("the application allows to filter Job results using \'CompanyName\' and \'Jobadder\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adding a Job record to a folder")]
+        [Xunit.FactAttribute(DisplayName="Adding a Job record to a folder")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Adding a Job record to a folder")]
         public virtual void AddingAJobRecordToAFolder()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding a Job record to a folder", ((string[])(null)));
-#line 32
+#line 27
 this.ScenarioSetup(scenarioInfo);
-#line 33
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 34
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 35
+#line 28
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 29
  testRunner.Then("the application allows me to add Job records into folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Removing a Job record from a folder")]
+        [Xunit.FactAttribute(DisplayName="Removing a Job record from a folder")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Removing a Job record from a folder")]
         public virtual void RemovingAJobRecordFromAFolder()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Removing a Job record from a folder", ((string[])(null)));
-#line 37
+#line 31
 this.ScenarioSetup(scenarioInfo);
-#line 38
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 32
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
  testRunner.And("I have added a Job record to  a folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 34
  testRunner.Then("the application allows me to remove the Job record form folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Invoking QuickView from Jobs  resultspage")]
+        [Xunit.FactAttribute(DisplayName="Invoking QuickView from Jobs  resultspage")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Invoking QuickView from Jobs  resultspage")]
         public virtual void InvokingQuickViewFromJobsResultspage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking QuickView from Jobs  resultspage", ((string[])(null)));
-#line 43
+#line 36
 this.ScenarioSetup(scenarioInfo);
-#line 44
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 45
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 46
+#line 37
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
  testRunner.Then("the  application  allows me to  invoke  Quickview  from Job records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adding Notes to Job recrods and Vewing them in QuickView")]
+        [Xunit.FactAttribute(DisplayName="Adding Notes to Job recrods and Vewing them in QuickView")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Adding Notes to Job recrods and Vewing them in QuickView")]
         public virtual void AddingNotesToJobRecrodsAndVewingThemInQuickView()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding Notes to Job recrods and Vewing them in QuickView", ((string[])(null)));
-#line 49
+#line 41
 this.ScenarioSetup(scenarioInfo);
-#line 50
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 51
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
+#line 42
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 43
  testRunner.And("I have added a note to a Job record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 44
  testRunner.Then("the application displays the newly added notes in Jobs QuickView", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Changing Status of  JobOrder and Viewing the updated status")]
+        [Xunit.FactAttribute(DisplayName="Changing Status of  JobOrder and Viewing the updated status")]
+        [Xunit.TraitAttribute("FeatureTitle", "Job Results")]
+        [Xunit.TraitAttribute("Description", "Changing Status of  JobOrder and Viewing the updated status")]
         public virtual void ChangingStatusOfJobOrderAndViewingTheUpdatedStatus()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Changing Status of  JobOrder and Viewing the updated status", ((string[])(null)));
-#line 55
+#line 46
 this.ScenarioSetup(scenarioInfo);
-#line 56
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 57
- testRunner.And("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 58
+#line 47
+ testRunner.Given("I have navigated to Jobs results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 48
  testRunner.Then("the application allows be to chage the status of the Job record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                JobResultsFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                JobResultsFeature.FeatureTearDown();
+            }
         }
     }
 }

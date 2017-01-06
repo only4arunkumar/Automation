@@ -9,10 +9,12 @@ namespace JobAdder_Automation.Step_Defenitions
     public class JobResultsSteps
     {
         private readonly DriverContext driverContext;
+        private readonly ScenarioContext scenarioContext;
         private JobResultsPage jobResultsPage;
-        public JobResultsSteps()
+        public JobResultsSteps(ScenarioContext scenarioContext)
         {
-            this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
+            this.scenarioContext = scenarioContext;
+            this.driverContext = scenarioContext["DriverContext"] as DriverContext;
 
         }
         [Given(@"I have navigated to Jobs results page")]

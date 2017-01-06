@@ -10,10 +10,12 @@ namespace JobAdder_Automation.Step_Defenitions
     [Binding]
     public class CommonSteps
     {
+        private readonly ScenarioContext scenarioContext;
         private readonly DriverContext driverContext;
-        public CommonSteps()
+        public CommonSteps(ScenarioContext scenarioContext)
         {
-            this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
+            this.scenarioContext = scenarioContext;
+            this.driverContext = scenarioContext["DriverContext"] as DriverContext;
         }
 
         [Given(@"I have successfully logged into JobAdder")]

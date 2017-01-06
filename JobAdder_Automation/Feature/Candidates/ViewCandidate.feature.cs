@@ -17,37 +17,36 @@ namespace JobAdder_Automation.Feature.Candidates
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("View Candidate Records")]
-    public partial class ViewCandidateRecordsFeature
+    public partial class ViewCandidateRecordsFeature : Xunit.IClassFixture<ViewCandidateRecordsFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "ViewCandidate.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public ViewCandidateRecordsFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "View Candidate Records", "\tThis feature covers the option of viewing a candidate record in view mode ", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -63,59 +62,67 @@ namespace JobAdder_Automation.Feature.Candidates
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Accessing a Candidate record from Candidate results")]
+        public virtual void SetFixture(ViewCandidateRecordsFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Accessing a Candidate record from Candidate results")]
+        [Xunit.TraitAttribute("FeatureTitle", "View Candidate Records")]
+        [Xunit.TraitAttribute("Description", "Accessing a Candidate record from Candidate results")]
         public virtual void AccessingACandidateRecordFromCandidateResults()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Accessing a Candidate record from Candidate results", ((string[])(null)));
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
  testRunner.And("I have selected a candidate record from the candidate results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
+#line 8
  testRunner.Then("The application displays the  candidate record in view mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Checking for Candidate delete confimration message")]
+        [Xunit.FactAttribute(DisplayName="Checking for Candidate delete confimration message")]
+        [Xunit.TraitAttribute("FeatureTitle", "View Candidate Records")]
+        [Xunit.TraitAttribute("Description", "Checking for Candidate delete confimration message")]
         public virtual void CheckingForCandidateDeleteConfimrationMessage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checking for Candidate delete confimration message", ((string[])(null)));
-#line 11
+#line 10
 this.ScenarioSetup(scenarioInfo);
+#line 11
+ testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
- testRunner.And("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
  testRunner.And("I have selected a candidate record from the candidate results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 13
  testRunner.When("I attempt to delete a Candidate record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 14
  testRunner.Then("The  appllication displays a warning message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adding a Candidate to a JobOrder")]
-        public virtual void AddingACandidateToAJobOrder()
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding a Candidate to a JobOrder", ((string[])(null)));
-#line 19
-this.ScenarioSetup(scenarioInfo);
-#line 20
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
- testRunner.And("I have selected a candidate record from the candidate results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
+            
+            public FixtureData()
+            {
+                ViewCandidateRecordsFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                ViewCandidateRecordsFeature.FeatureTearDown();
+            }
         }
     }
 }

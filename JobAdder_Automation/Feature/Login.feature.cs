@@ -17,18 +17,20 @@ namespace JobAdder_Automation.Feature
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Login")]
-    public partial class LoginFeature
+    public partial class LoginFeature : Xunit.IClassFixture<LoginFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "Login.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public LoginFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Login", "\tCheck whether login attempt with valid credential\r\n\ttakes the user to default pa" +
@@ -36,19 +38,16 @@ namespace JobAdder_Automation.Feature
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -64,13 +63,25 @@ namespace JobAdder_Automation.Feature
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successful login to JobAdder")]
-        [NUnit.Framework.CategoryAttribute("Login")]
+        public virtual void SetFixture(LoginFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Successful login to JobAdder")]
+        [Xunit.TraitAttribute("FeatureTitle", "Login")]
+        [Xunit.TraitAttribute("Description", "Successful login to JobAdder")]
+        [Xunit.TraitAttribute("Category", "Login")]
+        [Xunit.TraitAttribute("Category", "ExplicitLogin")]
         public virtual void SuccessfulLoginToJobAdder()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successful login to JobAdder", new string[] {
-                        "Login"});
+                        "Login",
+                        "ExplicitLogin"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -83,6 +94,22 @@ this.ScenarioSetup(scenarioInfo);
     testRunner.Then("I should be taken to defualt page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                LoginFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                LoginFeature.FeatureTearDown();
+            }
         }
     }
 }

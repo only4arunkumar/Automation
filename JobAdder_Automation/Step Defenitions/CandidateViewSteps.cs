@@ -11,12 +11,15 @@ namespace JobAdder_Automation.Step_Defenitions
     public class CandidateViewSteps
     {
         private readonly DriverContext driverContext;
+        private readonly ScenarioContext scenarioContext;
         private CandidateViewPage canViewPage;
         private string recordId;
 
-        public CandidateViewSteps()
+        public CandidateViewSteps(ScenarioContext scenarioContext)
         {
-            this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
+           
+            this.scenarioContext = scenarioContext;
+            this.driverContext = scenarioContext["DriverContext"] as DriverContext;
         }
 
         [Then(@"The application displays the  candidate record in view mode")]

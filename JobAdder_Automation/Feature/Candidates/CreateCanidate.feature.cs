@@ -17,18 +17,20 @@ namespace JobAdder_Automation.Feature.Candidates
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CreateCanidate")]
-    public partial class CreateCanidateFeature
+    public partial class CreateCanidateFeature : Xunit.IClassFixture<CreateCanidateFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "CreateCanidate.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public CreateCanidateFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CreateCanidate", "\tThis feature covers the  various possiblities of creating a  new \r\n\tcandidate re" +
@@ -36,19 +38,16 @@ namespace JobAdder_Automation.Feature.Candidates
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -64,45 +63,68 @@ namespace JobAdder_Automation.Feature.Candidates
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a Candidate by manually entering the values")]
+        public virtual void SetFixture(CreateCanidateFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Create a Candidate by manually entering the values")]
+        [Xunit.TraitAttribute("FeatureTitle", "CreateCanidate")]
+        [Xunit.TraitAttribute("Description", "Create a Candidate by manually entering the values")]
         public virtual void CreateACandidateByManuallyEnteringTheValues()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a Candidate by manually entering the values", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have navigated to create candidate page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have navigated to create candidate page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
  testRunner.And("I have manually entered the mandaory candidate fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
+#line 9
  testRunner.When("I press create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
+#line 10
  testRunner.Then("the application creates the candidate record and display the result in view mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a Candidate by parsing individual resume")]
+        [Xunit.FactAttribute(DisplayName="Create a Candidate by parsing individual resume")]
+        [Xunit.TraitAttribute("FeatureTitle", "CreateCanidate")]
+        [Xunit.TraitAttribute("Description", "Create a Candidate by parsing individual resume")]
         public virtual void CreateACandidateByParsingIndividualResume()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a Candidate by parsing individual resume", ((string[])(null)));
-#line 14
+#line 13
 this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("I have navigated to create candidate page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
- testRunner.And("I have navigated to create candidate page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
  testRunner.And("I have uploaded a candidate resume to file-upload area", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 16
  testRunner.Then("the application creates the candidate record from resume and display the result i" +
                     "n view mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                CreateCanidateFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                CreateCanidateFeature.FeatureTearDown();
+            }
         }
     }
 }

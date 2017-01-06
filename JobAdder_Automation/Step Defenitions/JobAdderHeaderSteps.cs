@@ -10,13 +10,14 @@ namespace JobAdder_Automation
     [Binding]
     public class JobAdderHeaderSteps
     {
-
+        private readonly ScenarioContext scenarioContext;
         private readonly DriverContext driverContext;
         private JobAdderHeaderPage headerPage;
 
-        public JobAdderHeaderSteps()
+        public JobAdderHeaderSteps(ScenarioContext scenarioContext)
         {
-            this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
+            this.scenarioContext = scenarioContext;
+            this.driverContext = scenarioContext["DriverContext"] as DriverContext;
         }
         [Then(@"Links to JobAdder modules should be clickable")]
         public void ThenLinksToJobAdderModulesShouldBeClickable()

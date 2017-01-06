@@ -29,7 +29,7 @@ namespace Objectivity.Test.Automation.Tests.Features
     using Objectivity.Test.Automation.Common.Logger;
 
     using TechTalk.SpecFlow;
-
+    using JobAdder_Automation.Pages;
     /// <summary>
     /// The base class for all tests
     /// </summary>
@@ -109,8 +109,23 @@ namespace Objectivity.Test.Automation.Tests.Features
             this.LogTest.LogTestStarting(this.driverContext);
             this.DriverContext.Start();
             this.scenarioContext["DriverContext"] = this.DriverContext;
+            LoginPage loginPage = new LoginPage(this.driverContext);
+            loginPage.NavigateToLoginPage();
+            loginPage.InputUserName("arunkumar+auqa2@jobadder.com");
+            loginPage.InputPassword("Jiby@a714");
+            loginPage.Logon();
         }
 
+        [Before("ExplicitLogin")]
+        public void ExplicitLoginBeforeTest()
+        {
+            this.DriverContext.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            this.DriverContext.TestTitle = this.scenarioContext.ScenarioInfo.Title;
+            this.LogTest.LogTestStarting(this.driverContext);
+            this.DriverContext.Start();
+            this.scenarioContext["DriverContext"] = this.DriverContext;
+           
+        }
         /// <summary>
         /// After the test.
         /// </summary>

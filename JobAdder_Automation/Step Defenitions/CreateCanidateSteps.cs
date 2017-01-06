@@ -10,12 +10,13 @@ namespace JobAdder_Automation.Step_Defenitions
     public class CreateCanidateSteps
     {
         private readonly DriverContext driverContext;
+        private readonly ScenarioContext scenarioContext;
         private CreateCanidatePage canCreatePage;
         private CandidateViewPage canViewPage;
-        public CreateCanidateSteps()
+        public CreateCanidateSteps(ScenarioContext scenarioContext)
         {
-
-            this.driverContext = ScenarioContext.Current["DriverContext"] as DriverContext;
+            this.scenarioContext = scenarioContext;
+            this.driverContext = scenarioContext["DriverContext"] as DriverContext;
         }
 
         [Given(@"I have navigated to create candidate page")]

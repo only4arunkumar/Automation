@@ -17,18 +17,20 @@ namespace JobAdder_Automation.Feature.HeaderBar
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("JobAdderHeader")]
-    public partial class JobAdderHeaderFeature
+    public partial class JobAdderHeaderFeature : Xunit.IClassFixture<JobAdderHeaderFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "JobAdderHeader.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public JobAdderHeaderFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "JobAdderHeader", "\tInorder to  check whether  individual JobAdder modules \r\n\tcan be invoked from th" +
@@ -36,19 +38,16 @@ namespace JobAdder_Automation.Feature.HeaderBar
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -64,11 +63,23 @@ namespace JobAdder_Automation.Feature.HeaderBar
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Accessing JobAdder modules from header")]
+        public virtual void SetFixture(JobAdderHeaderFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Accessing JobAdder modules from header")]
+        [Xunit.TraitAttribute("FeatureTitle", "JobAdderHeader")]
+        [Xunit.TraitAttribute("Description", "Accessing JobAdder modules from header")]
+        [Xunit.TraitAttribute("Category", "ExplicitLogin")]
         public virtual void AccessingJobAdderModulesFromHeader()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Accessing JobAdder modules from header", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Accessing JobAdder modules from header", new string[] {
+                        "ExplicitLogin"});
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -79,34 +90,56 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Invoking Quick Search from header")]
+        [Xunit.FactAttribute(DisplayName="Invoking Quick Search from header")]
+        [Xunit.TraitAttribute("FeatureTitle", "JobAdderHeader")]
+        [Xunit.TraitAttribute("Description", "Invoking Quick Search from header")]
+        [Xunit.TraitAttribute("Category", "ExplicitLogin")]
         public virtual void InvokingQuickSearchFromHeader()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking Quick Search from header", ((string[])(null)));
-#line 10
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking Quick Search from header", new string[] {
+                        "ExplicitLogin"});
 #line 11
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 12
+ testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
  testRunner.Then("Quicksearch should be invokable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Invoking Quick Add from header")]
+        [Xunit.FactAttribute(DisplayName="Invoking Quick Add from header")]
+        [Xunit.TraitAttribute("FeatureTitle", "JobAdderHeader")]
+        [Xunit.TraitAttribute("Description", "Invoking Quick Add from header")]
+        [Xunit.TraitAttribute("Category", "ExplicitLogin")]
         public virtual void InvokingQuickAddFromHeader()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking Quick Add from header", ((string[])(null)));
-#line 14
-this.ScenarioSetup(scenarioInfo);
-#line 15
- testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking Quick Add from header", new string[] {
+                        "ExplicitLogin"});
 #line 16
+this.ScenarioSetup(scenarioInfo);
+#line 17
+ testRunner.Given("I have successfully logged into JobAdder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 18
  testRunner.Then("QuickAdd should be invokable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                JobAdderHeaderFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                JobAdderHeaderFeature.FeatureTearDown();
+            }
         }
     }
 }
