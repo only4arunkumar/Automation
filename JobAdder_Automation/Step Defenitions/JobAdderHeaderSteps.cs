@@ -42,5 +42,18 @@ namespace JobAdder_Automation
             Verify.That(this.driverContext, () => Assert.IsTrue(headerPage.Check_QuickAddInvokable()));
         }
 
+        [Then(@"Record Details added into recent record list")]
+        public void ThenRecordDetailsAddedIntoRecentRecordList()
+        {
+            headerPage = new JobAdderHeaderPage(this.driverContext);
+            string canRecordId;
+            scenarioContext.TryGetValue("CanrecordIdView", out canRecordId);
+            Verify.That(this.driverContext, () => Assert.IsTrue(headerPage.Check_RecordAddedToRecentRecordList(canRecordId)));
+           
+            
+        }
+
+       
+
     }
 }

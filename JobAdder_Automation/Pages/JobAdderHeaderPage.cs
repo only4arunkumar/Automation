@@ -53,7 +53,6 @@ namespace JobAdder_Automation.Pages
             }
             return true;
         }
-
         public bool Check_QuickSearch(string searchVal)
         {
             ElementLocator quickSearch = new ElementLocator(Locator.CssSelector, ".query input");
@@ -86,7 +85,6 @@ namespace JobAdder_Automation.Pages
             }
             return false;
         }
-
         public bool Check_QuickAddInvokable()
         {
             ElementLocator quickAdd = new ElementLocator(Locator.Id, "quick-links");
@@ -122,7 +120,33 @@ namespace JobAdder_Automation.Pages
             return false;
 
         }
+        public bool Check_RecordAddedToRecentRecordList(string recordId)
+        {
+            ElementLocator quickSearch = new ElementLocator(Locator.CssSelector, ".query input");
+            try
+            {
+                Driver.GetElement(quickSearch).Click();
+                Driver.WaitForAjax();
+                ElementLocator recentRecordList = new ElementLocator(Locator.ClassName, "recentrecords");
+                string recentRecordSelector = string.Format("a[href$='{0}", recordId);
+                Driver.GetElement(recentRecordList).FindElement(By.CssSelector(recentRecordSelector));
+                return true;
 
+            }catch(NoSuchElementException ex)
+            {
+                logger.Error("Element not found Exception in Check_RecordAddedToRecentRecordList {0}", ex.Message);
+            }
+            catch(TimeoutException ex)
+            {
+
+                logger.Error("Timeout Exception in Check_RecordAddedToRecentRecordList :{0}", ex.Message);
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Generic exception in Check_RecordAddedToRecentRecordList :{0}", ex.Message);
+            }
+            return false;
+        }
         public void Navigate_To_Module(string module)
         {
             ElementLocator headerLink = new ElementLocator(Locator.LinkText, module);

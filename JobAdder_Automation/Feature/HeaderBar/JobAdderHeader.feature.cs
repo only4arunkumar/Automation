@@ -126,6 +126,24 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Candidate Recent Record List Displayed")]
+        [Xunit.TraitAttribute("FeatureTitle", "JobAdderHeader")]
+        [Xunit.TraitAttribute("Description", "Candidate Recent Record List Displayed")]
+        public virtual void CandidateRecentRecordListDisplayed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Candidate Recent Record List Displayed", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 21
+testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
+testRunner.And("I have selected a candidate record from the candidate results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+testRunner.Then("Record Details added into recent record list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
