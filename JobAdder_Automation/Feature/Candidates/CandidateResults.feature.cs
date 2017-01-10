@@ -173,35 +173,19 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Adding a Candidate record to a folder")]
+        [Xunit.FactAttribute(DisplayName="Folder Operation for Candidate Record")]
         [Xunit.TraitAttribute("FeatureTitle", "CandidateResults")]
-        [Xunit.TraitAttribute("Description", "Adding a Candidate record to a folder")]
-        public virtual void AddingACandidateRecordToAFolder()
+        [Xunit.TraitAttribute("Description", "Folder Operation for Candidate Record")]
+        public virtual void FolderOperationForCandidateRecord()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding a Candidate record to a folder", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder Operation for Candidate Record", ((string[])(null)));
 #line 40
 this.ScenarioSetup(scenarioInfo);
 #line 41
  testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 42
  testRunner.Then("the application allows me to add records into folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.FactAttribute(DisplayName="Removing a Candidate record from a folder")]
-        [Xunit.TraitAttribute("FeatureTitle", "CandidateResults")]
-        [Xunit.TraitAttribute("Description", "Removing a Candidate record from a folder")]
-        public virtual void RemovingACandidateRecordFromAFolder()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Removing a Candidate record from a folder", ((string[])(null)));
-#line 45
-this.ScenarioSetup(scenarioInfo);
-#line 46
- testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 47
- testRunner.And("I have added a candidate record to  a folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 48
+#line 43
  testRunner.Then("the application allows me to remove the record form folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -214,11 +198,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void PerformingKeywordSearchOnCandidateRecords(string keyword, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Performing Keyword Search on Candidate records", exampleTags);
-#line 51
+#line 47
 this.ScenarioSetup(scenarioInfo);
-#line 52
+#line 48
  testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 53
+#line 49
  testRunner.Then(string.Format("the application allows me to perform {0} Search", keyword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -230,11 +214,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void InvokingQuickViewFromCandidateResultspage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invoking QuickView from Candidate  resultspage", ((string[])(null)));
-#line 58
+#line 54
 this.ScenarioSetup(scenarioInfo);
-#line 59
+#line 55
  testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 60
+#line 56
  testRunner.Then("the  application  allows me to  invoke  Quickview", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -246,13 +230,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddingNotesToCandidateRecrodsAndVewingThemInQuickView()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding Notes to Candidate recrods and Vewing them in QuickView", ((string[])(null)));
-#line 62
+#line 58
 this.ScenarioSetup(scenarioInfo);
-#line 63
+#line 59
  testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
+#line 60
  testRunner.And("I have added a note to a record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
+#line 61
  testRunner.Then("the application displays the newly added notes in QuickView", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -264,11 +248,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ChangeStatusOfACandidateRecord()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change status of a Candidate record", ((string[])(null)));
-#line 67
+#line 63
 this.ScenarioSetup(scenarioInfo);
-#line 68
+#line 64
  testRunner.Given("I have navigated to Candidates results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 69
+#line 65
  testRunner.Then("the application allows me to change the status of a candidate record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

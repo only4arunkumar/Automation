@@ -61,7 +61,7 @@ namespace JobAdder_Automation.Pages
             {
         
 
-                FileInfo file = new FileInfo("D:\\Arun\\JobAdder_TestAutomation\\JobAdder_Automation\\bin\\Debug\\TestData\\Sample_Resume.pdf");
+                FileInfo file = new FileInfo(".//TestData//Sample_Resume.pdf");
                 IWebElement fileUpload = Driver.FindElements(By.CssSelector("input[type='file']"))[1];
                 fileUpload.SendKeys(file.FullName);
                 Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 5));

@@ -37,15 +37,11 @@ Scenario: Clearing the Column filter from Candidates results page
 
 
 
-Scenario: Adding a Candidate record to a folder
+Scenario: Folder Operation for Candidate Record
 	Given I have navigated to Candidates results page
 	Then  the application allows me to add records into folder
-
-
-Scenario: Removing a Candidate record from a folder
-	Given I have navigated to Candidates results page
-	And   I have added a candidate record to  a folder
 	Then  the application allows me to remove the record form folder
+
 
 
 Scenario Outline: Performing Keyword Search on Candidate records

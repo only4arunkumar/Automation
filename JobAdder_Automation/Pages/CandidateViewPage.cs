@@ -32,7 +32,6 @@ namespace JobAdder_Automation.Pages
         {
             return Driver.Url.Contains(recordId);
         }
-
         public bool DeleteCurrentCandidate(bool confirmDelete)
         {
             try
@@ -62,9 +61,6 @@ namespace JobAdder_Automation.Pages
 
 
         }
-
-       
-
         public bool CheckWhetherDeleteConfirmationDisplayed()
         {
             try
