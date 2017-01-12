@@ -113,6 +113,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JobAdderHeader.feature</DependentUpon>
     </Compile>
+    <Compile Include="Feature\JobApplications\JobApplicationResults.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobApplicationResults.feature</DependentUpon>
+    </Compile>
     <Compile Include="Feature\Login.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +129,8 @@
       <DependentUpon>Job Results.feature</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DataHelper.cs" />
+    <Compile Include="Pages\JobApplicationsResultPage.cs" />
+    <Compile Include="Step Defenitions\JobApplicationsResultsSteps.cs" />
     <Compile Include="Pages\CandidateResultsPage.cs" />
     <Compile Include="Pages\CandidateViewPage.cs" />
     <Compile Include="Pages\CreateCanidatePage.cs" />
@@ -163,6 +170,10 @@
     <None Include="Feature\HeaderBar\JobAdderHeader.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>JobAdderHeader.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Feature\JobApplications\JobApplicationResults.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>JobApplicationResults.feature.cs</LastGenOutput>
     </None>
     <None Include="Feature\Login.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
