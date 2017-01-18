@@ -454,10 +454,51 @@ namespace JobAdder_Automation.Pages
             Driver.WaitForAjax();
         }
 
+
         protected void ClickMenuItem(string menuText)
         {
             ElementLocator menuItem = new ElementLocator(Locator.LinkText, menuText);
             Driver.GetElement(menuItem).Click();
+        }
+
+        protected bool ChangeStarRating(string recordId)
+        {
+            try
+            {
+
+                IWebElement starRating = Driver.FindElement(By.CssSelector(string.Format("div[data-itemid='{0}'] i:nth-child(1n)", recordId)));
+                Random randomValue = new Random();
+                int ratingValue = randomValue.Next(1, 5);
+                if(ratingValue ==GetCurrentStartRating(recordId))
+                {
+                    ratingValue = randomValue.Next(1, 5);
+                }
+                string elementId = string.Format("div[data-itemid='{0}'] i:nth-child({1}n)", recordId, ratingValue);
+                Driver.Actions().Click(starRating);
+                Driver.Actions().MoveToElement(Driver.FindElement(By.CssSelector(elementId)));
+                Driver.Actions().MoveToElement(Driver.FindElement(By.CssSelector(elementId))).Click().Perform();
+
+
+                return true;
+            }
+            catch (NoSuchElementException ex)
+            {
+                logger.Error("NoSuchElementException encuntered in ChangeStarRatingForJobApplication :{0}", ex.Message);
+            }
+            return false;
+        }
+
+        protected int GetCurrentStartRating(string recordId)
+        {
+            try
+            {
+                return Driver.FindElements(By.CssSelector(string.Format("div[data-itemid='{0}'] .fa-star", recordId))).Count();
+            }
+            catch(NoSuchElementException ex)
+            {
+                logger.Error("NoSuchElementException encountered in GetCurrentRating :{0}", ex.Message);
+            }
+            return 0;
         }
 
         private string InvokeFolderFilter(string folderName)

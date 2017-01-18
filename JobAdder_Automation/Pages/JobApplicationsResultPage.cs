@@ -25,24 +25,13 @@ namespace JobAdder_Automation.Pages
 
         private bool ChangeStarRatingForJobApplication(string recordId)
         {
-            try
+            int initialRating = GetCurrentStartRating(recordId);
+            ChangeStarRating(recordId);
+            if (initialRating != GetCurrentStartRating(recordId))
             {
-                IWebElement starRating = Driver.FindElement(By.CssSelector(string.Format("div[data-itemid='{0}']", recordId)));
-                Driver.Actions().Build();
-                Driver.Actions().ClickAndHold(starRating);
-                Random rateSelected = new Random();
-                Driver.Actions().MoveToElement(starRating.FindElement(By.CssSelector(string.Format("i:nth-child({0})", rateSelected.Next(1, 5)))));
-                Driver.Actions().Release();
-                Driver.Actions().Perform();
                 return true;
-            }catch(NoSuchElementException ex)
-            {
-                logger.Error("NoSuchElementException encuntered in ChangeStarRatingForJobApplication :{0}", ex.Message);
             }
-            return false;
-            
-            
-
+            return false;           
         }
     }
 }
