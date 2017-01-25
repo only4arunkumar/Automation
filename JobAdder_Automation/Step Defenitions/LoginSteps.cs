@@ -31,8 +31,8 @@ namespace JobAdder_Automation.Step_Defenitions
         [Given(@"I have entered valid credentials")]
         public void GivenIHaveEnteredValidCredentials()
         {
-            loginPage.InputUserName("arunkumar+auqa2@jobadder.com");
-            loginPage.InputPassword("Jiby@a714");
+            loginPage.InputUserName("");
+            loginPage.InputPassword("");
           
         }
 
