@@ -111,8 +111,8 @@ namespace Objectivity.Test.Automation.Tests.Features
             this.scenarioContext["DriverContext"] = this.DriverContext;
             LoginPage loginPage = new LoginPage(this.driverContext);
             loginPage.NavigateToLoginPage();
-            loginPage.InputUserName("arunkumar+auqa2@jobadder.com");
-            loginPage.InputPassword("Jiby@a714");
+            loginPage.InputUserName("username");
+            loginPage.InputPassword("password");
             loginPage.Logon();
         }
 
